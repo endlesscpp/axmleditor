@@ -73,7 +73,7 @@ java -jar axmleditor.jar prebuilt.apk UMENG_CHANNEL=baidu BD_APP_CHANNEL=baidu C
 
 * 解析prebuilt.apk中的AndroidManifest.xml  
 
-* 对android:name为UMENG_CHANNEL，BD_APP_CHANNEL，CHANNEL 为属性，更改android:value的值为baidu  
+* 对android:name为UMENG_CHANNEL，BD_APP_CHANNEL，CHANNEL的属性，更改android:value的值为baidu  
 
 * 重新编译AndroidManifest.xml, 把编译后的AndroidManifest.xml放到prebuilt.apk同一目录下   
 

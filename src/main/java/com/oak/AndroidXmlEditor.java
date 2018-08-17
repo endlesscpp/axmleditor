@@ -137,6 +137,12 @@ public class AndroidXmlEditor {
                 byte[] intbuf = Ints.toByteArray(Integer.reverseBytes(idx));
                 System.arraycopy(intbuf, 0, finalbuf, offset, intbuf.length);
             }
+
+            // update the whole size.
+            {
+                byte[] buf = Ints.toByteArray(Integer.reverseBytes(finalbuf.length));
+                System.arraycopy(buf, 0, finalbuf, 4, buf.length);
+            }
         } catch (Exception e) {
             System.err.println("Error reading AndroidManifext.xml " + e.getMessage());
             e.printStackTrace(System.err);

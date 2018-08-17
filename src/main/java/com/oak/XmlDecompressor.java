@@ -140,7 +140,7 @@ public class XmlDecompressor {
                                 PACKED_XML_IDENTIFIER,
                                 fileMarker));
             }
-            dis.skipBytes(4);
+            int filesize = dis.readInt();
             List<String> packedStrings = parseStrings(dis);
 
             int ident = 0;
@@ -524,6 +524,12 @@ public class XmlDecompressor {
                 }
                 // update the chunk size
                 chunkSize = stm.size() + headerSize + offsets.length * 4;
+                int padding = (chunkSize + 3) / 4 * 4 - chunkSize;
+                if (padding > 0) {
+                    stm.write(new byte[padding]);
+                    chunkSize += padding;
+                }
+
                 stringbuf = stm.toByteArray();
             }
 

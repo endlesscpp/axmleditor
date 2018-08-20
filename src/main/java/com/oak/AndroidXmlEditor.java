@@ -136,6 +136,8 @@ public class AndroidXmlEditor {
 
                 byte[] intbuf = Ints.toByteArray(Integer.reverseBytes(idx));
                 System.arraycopy(intbuf, 0, finalbuf, offset, intbuf.length);
+                // also change the resource id.
+                System.arraycopy(intbuf, 0, finalbuf, offset + 8, intbuf.length);
             }
 
             // update the whole size.

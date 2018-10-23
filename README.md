@@ -14,12 +14,12 @@ java -jar axmleditor.jar prebuilt.apk UMENG_CHANNEL=baidu BD_APP_CHANNEL=baidu C
 It will parse the AndroidManifest.xml in prebuilt.apk, change the value of android:value to 'baidu', 
 re-compile the xml, and put the compiled xml along with prebuilt.apk.  
 
-* Then user can use aapt or zip to add the compiled AndroidManifest.xml into apk. such as:  
+* Then user can use zip to add the compiled AndroidManifest.xml into apk. such as:  
 ```
-aapt remove prebuilt.apk AndroidManifest.xml
+zip -d prebuilt.apk AndroidManifest.xml
 ```
 ```
-aapt add prebuilt.apk AndroidManifest.xml
+zip prebuilt.apk AndroidManifest.xml
 ```
 
 ### Example
@@ -77,12 +77,12 @@ java -jar axmleditor.jar prebuilt.apk UMENG_CHANNEL=baidu BD_APP_CHANNEL=baidu C
 
 * 重新编译AndroidManifest.xml, 把编译后的AndroidManifest.xml放到prebuilt.apk同一目录下   
 
-##### 2.然后用appt或者zip把AndroidManifest.xml放回到apk中:  
+##### 2.然后用zip把AndroidManifest.xml放回到apk中:  
 ```
-aapt remove prebuilt.apk AndroidManifest.xml
+aapt -d prebuilt.apk AndroidManifest.xml
 ```
 ```
-aapt add prebuilt.apk AndroidManifest.xml
+aapt prebuilt.apk AndroidManifest.xml
 ```
 ##### 3.多渠道打包时，对每个渠道名，重复第2步，即可快速生成多个渠道包
 
